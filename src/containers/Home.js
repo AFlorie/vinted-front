@@ -44,6 +44,7 @@ const Home = () => {
                     />
                     <span>{article.owner.account.username}</span>
                   </div>
+                  <di>{article._id}</di>
                   <div className="articlePhoto">
                     <img
                       src={article.product_image.secure_url}
