@@ -39,17 +39,50 @@ header img {
   background-image: url("assets/img/headingImg.jpeg");
   height: 450px;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
 }
 
+.heading h1 {
+  font-size: 34px;
+  line-height: 42.5px;
+  margin-bottom: 40px;
+}
+
 .heading > div {
+  box-sizing: border-box;
+  padding: 38px 60px 30px 34px;
   position: absolute;
   top: 96px;
   left: 140px;
   width: 400px;
   height: 257px;
   background-color: #fff;
+}
+
+.heading button {
+  border-style: none;
+  outline: none;
+  font-family: inherit;
+  font-size: inherit;
+  background-color: #0ab0ba;
+  color: white;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.heading p {
+  color: #0ab0ba;
+}
+
+.heading .effect {
+  width: 50%;
+  height: auto;
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
 
 /* ARTICLES  */
@@ -94,22 +127,24 @@ header img {
 }
 
 div.offerContainer > div.container {
-  border: 2px solid blue;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
 .productInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-around;
   background-color: white;
   width: 300px;
   height: 451px;
   padding: 30px;
 }
 
-.productInfo h1 {
+.productInfo h2 {
   font-weight: bold;
-  margin: 10px 0;
 }
 
 .productInfo p {
@@ -125,7 +160,7 @@ hr {
   font-size: 12px;
   display: flex;
   justify-content: space-between;
-  align-content: center;
+  align-items: flex-end;
 }
 
 .sousProductInfo .info-col-1 {
@@ -140,4 +175,31 @@ p.description {
   font-size: 14px;
   text-transform: none;
   word-break: break-word;
+}
+
+.sousProductInfo2 p {
+  text-transform: none;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.sousProductInfo2 img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.productInfo button {
+  border-style: none;
+  outline: none;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 14px;
+  background-color: #0ab0ba;
+  color: white;
+  padding: 10px 0;
+  border-radius: 5px;
+  cursor: pointer;
 }

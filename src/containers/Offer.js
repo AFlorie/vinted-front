@@ -9,20 +9,19 @@ const Offer = () => {
   const [product, setProduct] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
-  const fetchData = async (id) => {
-    try {
-      const response = await Axios.get(
-        `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
-      );
-      setProduct(response.data);
-      setIsLoading(false);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-
   useEffect(() => {
-    fetchData();
+    const fetchData = async () => {
+      try {
+        const response = await Axios.get(
+          `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
+        );
+        setProduct(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+    fetchData(id);
   }, [id]);
 
   //console.log(product.product_image.secure_url);
@@ -41,8 +40,7 @@ const Offer = () => {
                 alt="article à vendre"
               />
               <section className="productInfo">
-                <h1>{product.product_price} €</h1>
-
+                <h2>{product.product_price} €</h2>
                 <section className="sousProductInfo">
                   <div className="info-col-1">
                     <p className="col-1">marque</p>
@@ -62,11 +60,18 @@ const Offer = () => {
                     <p className="col-2">emplacement à remplir</p>
                   </div>
                 </section>
-
                 <hr />
-                <p className="description">{product.product_description}</p>
-                <p></p>
-                <p></p>
+                <section className="sousProductInfo2">
+                  <p>{product.product_name}</p>
+                  <p className="description">{product.product_description}</p>
+                  <p className="userInfo">
+                    <img
+                      src={product.owner.account.avatar.secure_url}
+                      alt="userAvatar"
+                    />
+                    <span>{product.owner.account.username}</span>
+                  </p>
+                </section>
                 <button>acheter</button>
               </section>
             </div>
