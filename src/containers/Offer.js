@@ -9,7 +9,7 @@ const Offer = () => {
   const [product, setProduct] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
-  const fetchData = async () => {
+  const fetchData = async (id) => {
     try {
       const response = await Axios.get(
         `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
@@ -23,7 +23,7 @@ const Offer = () => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [id]);
 
   //console.log(product.product_image.secure_url);
 
@@ -42,13 +42,29 @@ const Offer = () => {
               />
               <section className="productInfo">
                 <h1>{product.product_price} €</h1>
-                <p>{product.product_details[0].MARQUE}</p>
-                <p>taille</p>
-                <p>etat</p>
-                <p>couleur</p>
-                <p>emplacement</p>
+
+                <section className="sousProductInfo">
+                  <div className="info-col-1">
+                    <p className="col-1">marque</p>
+                    <p className="col-1">taille</p>
+                    <p className="col-1">état</p>
+                    <p className="col-1">couleur</p>
+                    <p className="col-1">emplacement</p>
+                  </div>
+
+                  <div className="info-col-2">
+                    <p className="col-2">{product.product_details[0].MARQUE}</p>
+                    <p className="col-2">{product.product_details[1].TAILLE}</p>
+                    <p className="col-2">{product.product_details[2].ÉTAT}</p>
+                    <p className="col-2">
+                      {product.product_details[3].COULEUR}
+                    </p>
+                    <p className="col-2">emplacement à remplir</p>
+                  </div>
+                </section>
+
                 <hr />
-                <p></p>
+                <p className="description">{product.product_description}</p>
                 <p></p>
                 <p></p>
                 <button>acheter</button>

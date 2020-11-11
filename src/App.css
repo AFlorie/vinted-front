@@ -1,5 +1,9 @@
 /* GENERAL */
 
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .container {
   width: 80%;
   margin: 0 auto;
@@ -99,8 +103,13 @@ div.offerContainer > div.container {
 .productInfo {
   background-color: white;
   width: 300px;
-  height: 450px;
+  height: 451px;
   padding: 30px;
+}
+
+.productInfo h1 {
+  font-weight: bold;
+  margin: 10px 0;
 }
 
 .productInfo p {
@@ -108,5 +117,27 @@ div.offerContainer > div.container {
 }
 
 hr {
+  margin: 40px 0;
   color: lightgray;
+}
+
+.sousProductInfo {
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.sousProductInfo .info-col-1 {
+  color: #b9b9b9;
+}
+
+.sousProductInfo .info-col-2 {
+  color: #8f8f8f;
+}
+
+p.description {
+  font-size: 14px;
+  text-transform: none;
+  word-break: break-word;
 }
