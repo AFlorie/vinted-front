@@ -11,8 +11,19 @@ body {
 
 /* HEADER */
 
+header .container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 header {
-  margin: 10px 0;
+  background-color: #fff;
+  position: fixed;
+  z-index: 2;
+  height: 92px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,11 +31,23 @@ header {
 
 header input {
   border: none;
-  width: 389px;
+  width: 590px;
   height: 36px;
+  padding-left: 50px;
   font-size: 16px;
   border-radius: 5px;
-  background-color: lightgray;
+  background-color: #f5f6f7;
+  cursor: pointer;
+}
+
+header .inputLogo {
+  position: absolute;
+  color: #bebebe;
+}
+
+header i {
+  cursor: pointer;
+  margin: 13px;
 }
 
 header img {
@@ -32,15 +55,55 @@ header img {
   height: 30px;
 }
 
+header button {
+  outline: none;
+  font-family: inherit;
+  font-size: 12px;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+header button:nth-child(1) {
+  padding: 5px 20px;
+}
+
+header button:nth-child(1),
+header button:nth-child(2) {
+  color: #2db0ba;
+  background-color: white;
+  border: 1px solid #2db0ba;
+  margin: 0 14px;
+}
+
+header button:nth-child(3) {
+  color: white;
+  background-color: #2db0ba;
+  border: 1px solid #2db0ba;
+  margin: 0 30px;
+}
+
+header button:nth-child(1):hover,
+header button:nth-child(2):hover {
+  color: white;
+  background-color: #2db0ba;
+  border: 1px solid #2db0ba;
+}
+
+header button:nth-child(3):hover {
+  color: #2db0ba;
+  background-color: white;
+  border: 1px solid #2db0ba;
+}
+
 /*  HEADING */
 
 .heading {
   position: relative;
   background-image: url("assets/img/headingImg.jpeg");
-  height: 450px;
+  height: 544px;
   width: 100%;
-  object-fit: contain;
-  object-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 .heading h1 {
@@ -50,6 +113,7 @@ header img {
 }
 
 .heading > div {
+  margin-top: 95px;
   box-sizing: border-box;
   padding: 38px 60px 30px 34px;
   position: absolute;
@@ -75,6 +139,11 @@ header img {
 
 .heading p {
   color: #0ab0ba;
+  cursor: pointer;
+}
+
+.heading p:hover {
+  text-decoration: underline;
 }
 
 .heading .effect {
@@ -122,6 +191,7 @@ header img {
 }
 
 .offerContainer img {
+  margin-top: 121px;
   width: 340px;
   height: 450px;
 }
@@ -129,17 +199,19 @@ header img {
 div.offerContainer > div.container {
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .productInfo {
+  margin-top: 121px;
+  margin-bottom: 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-content: space-around;
   background-color: white;
   width: 300px;
-  height: 451px;
+  height: 450px;
   padding: 30px;
 }
 
@@ -152,7 +224,7 @@ div.offerContainer > div.container {
 }
 
 hr {
-  margin: 40px 0;
+  margin: 10px 0;
   color: lightgray;
 }
 
