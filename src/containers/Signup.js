@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import Axios from "axios";
+import { Link, useHistory } from "react-router-dom";
 
-const Signup = () => {
+const Signup = ({ setUser }) => {
+  let history = useHistory();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -10,14 +12,18 @@ const Signup = () => {
     event.preventDefault();
     try {
       const response = await Axios.post(
-        "https://api-exo-vinted.herokuapp.com/user/signup",
+        // https://api-exo-vinted.herokuapp.com/user/signup
+        "https://lereacteur-vinted-api.herokuapp.com/user/signup",
         {
-          usename: username,
+          username: username,
           email: email,
           password: password,
         }
       );
-      console.log(response.data);
+      // console.log(response.data.token);
+      //transmission du token à la fonction setUser dans App.js
+      setUser(response.data.token);
+      history.push("/");
     } catch (error) {
       console.log(error.message);
     }
@@ -74,7 +80,9 @@ const Signup = () => {
           avoir au moins 18 ans.
         </p>
         <button type="submit">S'inscrire</button>
-        <p className="connect">Tu as déja un compte ? Connecte-toi !</p>
+        <Link to="/login">
+          <p className="connect">Tu as déja un compte ? Connecte-toi !</p>
+        </Link>
       </form>
     </section>
   );

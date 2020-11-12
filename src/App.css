@@ -80,7 +80,7 @@ header button:nth-child(2) {
   margin: 0 14px;
 }
 
-header button:nth-child(3) {
+header button.sellProduct {
   color: white;
   background-color: #2db0ba;
   border: 1px solid #2db0ba;
@@ -94,7 +94,7 @@ header button:nth-child(2):hover {
   border: 1px solid #2db0ba;
 }
 
-header button:nth-child(3):hover {
+header button.sellProduct:hover {
   color: #2db0ba;
   background-color: white;
   border: 1px solid #2db0ba;
@@ -298,28 +298,33 @@ p.description {
 
 /*  SIGN UP  */
 
-.signup {
+.signup,
+.login {
   width: 275px;
   margin: 0 auto;
 }
 
-.signup h2 {
+.signup h2,
+.login h2 {
   margin: 50px 0 20px 0;
   font-size: 24px;
   text-align: center;
 }
 
-.signup input {
+.signup input,
+.login input {
   margin-top: 20px;
   border-style: none;
   font-family: inherit;
   font-size: inherit;
 }
-.signup input::placeholder {
+.signup input::placeholder,
+.login input::placeholder {
   color: lightgrey;
 }
 
-.signup hr {
+.signup hr,
+.login hr {
   background-color: #fcced3;
   border: 0 none;
   height: 1px;
@@ -364,10 +369,24 @@ p.description {
   cursor: pointer;
 }
 
-.signup p.connect {
+.signup p.connect,
+.login p.connect {
   color: #2cb1ba;
   font-size: 12px;
   margin: 20px;
   text-align: center;
+  cursor: pointer;
+}
+
+.login button {
+  outline: none;
+  border-style: none;
+  font-family: inherit;
+  font-size: inherit;
+  background-color: #2db0ba;
+  color: white;
+  width: 275px;
+  height: 44px;
+  border-radius: 5px;
   cursor: pointer;
 }

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Logo from "../assets/Vinted_logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Header = () => {
+const Header = ({ token, setToken, setUser }) => {
   return (
     <header>
       <div className="container">
@@ -22,11 +22,27 @@ const Header = () => {
           ></input>
         </div>
         <section>
-          <Link to="/signup">
-            <button>S'inscrire </button>
-          </Link>
-          <button>Se connecter</button>
-          <button>Vends tes articles</button>
+          {token ? (
+            <button
+              onClick={() => {
+                setToken(null);
+                setUser(null);
+              }}
+            >
+              Se déconnecter
+            </button>
+          ) : (
+            <>
+              <Link to="/signup">
+                <button>S'inscrire </button>
+              </Link>
+              <Link to="/login">
+                <button>Se connecter</button>
+              </Link>{" "}
+            </>
+          )}
+
+          <button className="sellProduct">Vends tes articles</button>
         </section>
       </div>
     </header>
