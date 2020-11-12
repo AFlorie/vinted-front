@@ -147,7 +147,7 @@ header button:nth-child(3):hover {
 }
 
 .heading .effect {
-  width: 50%;
+  width: 80%;
   height: auto;
   position: absolute;
   right: 0;
@@ -160,7 +160,14 @@ header button:nth-child(3):hover {
   margin-top: 30px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.article {
+  text-decoration: none;
+  color: #999999;
+  margin-bottom: 20px;
 }
 
 .userInfo {
@@ -178,9 +185,9 @@ header button:nth-child(3):hover {
 }
 
 .articlePhoto img {
-  margin-top: 10px;
-  width: 200px;
-  height: 200px;
+  margin: 10px 0;
+  width: 235px;
+  height: 360px;
   object-fit: cover;
 }
 
