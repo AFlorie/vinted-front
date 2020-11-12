@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import { Link } from "react-router-dom";
 
-import Header from "../components/Header";
 import Heading from "../components/Heading";
 
 const Home = () => {
@@ -27,7 +26,6 @@ const Home = () => {
 
   return (
     <>
-      <Header />
       <Heading />
       {isLoading ? (
         <p>Chargement en cours...</p>

@@ -4,6 +4,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
 .container {
   width: 80%;
   margin: 0 auto;
@@ -281,4 +285,10 @@ p.description {
   padding: 10px 0;
   border-radius: 5px;
   cursor: pointer;
+}
+
+/*  SIGN UP  */
+
+.signup {
+  background-color: blue;
 }

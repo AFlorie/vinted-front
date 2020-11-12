@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Logo from "../assets/Vinted_logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -19,7 +20,9 @@ const Header = () => {
           ></input>
         </div>
         <section>
-          <button>S'inscrire </button>
+          <Link to="/signup">
+            <button>S'inscrire </button>
+          </Link>
           <button>Se connecter</button>
           <button>Vends tes articles</button>
         </section>

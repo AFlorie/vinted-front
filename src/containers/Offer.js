@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import { useParams } from "react-router-dom";
 
-import Header from "../components/Header";
-
 const Offer = () => {
   const { id } = useParams();
   const [product, setProduct] = useState();
@@ -32,7 +30,6 @@ const Offer = () => {
         <p>Chargement en cours</p>
       ) : (
         <>
-          <Header />
           <div className="offerContainer ">
             <div className="container">
               <img
