@@ -39,18 +39,18 @@ const Offer = () => {
               <section className="productInfo">
                 <h2>{product.product_price} €</h2>
                 <section className="sousProductInfo">
-                  <p className="col-1">
+                  <div className="col-1">
                     {product.product_details.map((item, index) => {
                       const keys = Object.keys(item);
-                      return <div>{keys[0]}</div>;
+                      return <div key={index}>{keys[0]}</div>;
                     })}
-                  </p>
-                  <p className="col-2">
+                  </div>
+                  <div className="col-2">
                     {product.product_details.map((item, index) => {
                       const keys = Object.keys(item);
-                      return <div>{item[keys[0]]}</div>;
+                      return <div key={index}>{item[keys[0]]}</div>;
                     })}
-                  </p>
+                  </div>
                 </section>
                 <hr />
                 <section className="sousProductInfo2">
