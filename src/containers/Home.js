@@ -11,11 +11,12 @@ const Home = () => {
   const [totalOffers, setTotalOffers] = useState(0);
   const limit = 5;
   const [nbPages, setNbPages] = useState([]);
+  const [indexPage, setIndexPage] = useState(1);
 
   const fetchData = async () => {
     try {
       const response = await Axios.get(
-        "https://lereacteur-vinted-api.herokuapp.com/offers?page=1&limit=5"
+        `https://lereacteur-vinted-api.herokuapp.com/offers?page=${indexPage}&limit=${limit}`
       );
       setArticles(response.data.offers);
       setTotalOffers(response.data.count);
@@ -24,17 +25,18 @@ const Home = () => {
       for (let i = 1; i < totalPages; i++) {
         newTab.push(i);
       }
+      console.log(totalPages);
       setNbPages(newTab);
       setIsLoading(false);
     } catch (error) {
       console.log(error.message);
     }
   };
-  console.log(nbPages);
+
   useEffect(() => {
     fetchData(totalOffers, nbPages);
-  }, [totalOffers]);
-  //console.log(nbPages);
+  }, [totalOffers, indexPage]);
+
   return (
     <>
       <Heading />
@@ -49,16 +51,8 @@ const Home = () => {
                 return (
                   <button
                     key={index}
-                    onClick={async () => {
-                      try {
-                        const response = await Axios.get(
-                          `https://lereacteur-vinted-api.herokuapp.com/offers?page=${page}$limit=5`
-                        );
-                        setArticles(response.data.offers);
-                        setIsLoading(false);
-                      } catch (error) {
-                        console.log(error.message);
-                      }
+                    onClick={() => {
+                      setIndexPage(page);
                     }}
                   >
                     {page}
