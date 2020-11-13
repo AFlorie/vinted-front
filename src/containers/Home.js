@@ -10,7 +10,6 @@ const Home = () => {
 
   const [totalOffers, setTotalOffers] = useState(0);
   const limit = 5;
-  const [nbPages, setNbPages] = useState([]);
   const [indexPage, setIndexPage] = useState(1);
 
   const fetchData = async () => {
@@ -20,22 +19,23 @@ const Home = () => {
       );
       setArticles(response.data.offers);
       setTotalOffers(response.data.count);
-      const totalPages = Math.ceil(totalOffers / limit); //nb d'articles / limite arrondi au chiffre au dessus en cas de décimaux
-      const newTab = [...nbPages];
-      for (let i = 1; i < totalPages; i++) {
-        newTab.push(i);
-      }
-      console.log(totalPages);
-      setNbPages(newTab);
       setIsLoading(false);
     } catch (error) {
       console.log(error.message);
     }
   };
 
+  const totalPages = Math.ceil(totalOffers / limit); //nb d'articles / limite arrondi au chiffre au dessus en cas de décimaux
+  let newTab = [];
+  for (let i = 0; i < totalPages; i++) {
+    newTab.push(i);
+  }
+
   useEffect(() => {
-    fetchData(totalOffers, nbPages);
+    fetchData(totalOffers);
   }, [totalOffers, indexPage]);
+
+  console.log("nb pages", newTab);
 
   return (
     <>
@@ -46,19 +46,18 @@ const Home = () => {
         <section className=" container">
           <TotalOffers articles={articles} />
           <div className="pagination">
-            {totalOffers &&
-              nbPages.map((page, index) => {
-                return (
-                  <button
-                    key={index}
-                    onClick={() => {
-                      setIndexPage(page);
-                    }}
-                  >
-                    {page}
-                  </button>
-                );
-              })}
+            {newTab.map((page, index) => {
+              return (
+                <button
+                  key={index}
+                  onClick={() => {
+                    setIndexPage(page + 1);
+                  }}
+                >
+                  {page + 1}
+                </button>
+              );
+            })}
           </div>
         </section>
       )}
