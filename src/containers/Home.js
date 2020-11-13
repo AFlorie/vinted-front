@@ -15,7 +15,7 @@ const Home = () => {
   const getTotalPages = () => {
     const totalPages = Math.ceil(totalOffers / limit);
     const newTab = [...nbPages];
-    for (let i = 0; i < totalPages; i++) {
+    for (let i = 1; i < totalPages; i++) {
       newTab.push(i);
       setNbPages(newTab);
     }
