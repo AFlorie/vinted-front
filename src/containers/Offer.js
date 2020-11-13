@@ -39,23 +39,18 @@ const Offer = () => {
               <section className="productInfo">
                 <h2>{product.product_price} €</h2>
                 <section className="sousProductInfo">
-                  <div className="info-col-1">
-                    <p className="col-1">marque</p>
-                    <p className="col-1">taille</p>
-                    <p className="col-1">état</p>
-                    <p className="col-1">couleur</p>
-                    <p className="col-1">emplacement</p>
-                  </div>
-
-                  <div className="info-col-2">
-                    <p className="col-2">{product.product_details[0].MARQUE}</p>
-                    <p className="col-2">{product.product_details[1].TAILLE}</p>
-                    <p className="col-2">{product.product_details[2].ÉTAT}</p>
-                    <p className="col-2">
-                      {product.product_details[3].COULEUR}
-                    </p>
-                    <p className="col-2">emplacement à remplir</p>
-                  </div>
+                  <p className="col-1">
+                    {product.product_details.map((item, index) => {
+                      const keys = Object.keys(item);
+                      return <div>{keys[0]}</div>;
+                    })}
+                  </p>
+                  <p className="col-2">
+                    {product.product_details.map((item, index) => {
+                      const keys = Object.keys(item);
+                      return <div>{item[keys[0]]}</div>;
+                    })}
+                  </p>
                 </section>
                 <hr />
                 <section className="sousProductInfo2">

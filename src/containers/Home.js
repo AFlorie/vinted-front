@@ -49,7 +49,7 @@ const Home = () => {
                         alt="article à vendre"
                       />
                     </div>
-                    <p>{article.product_price} €</p>
+                    <p className="price">{article.product_price} €</p>
                     <p>{article.product_details[1].TAILLE}</p>
                     <p>{article.product_details[0].MARQUE}</p>
                   </article>
