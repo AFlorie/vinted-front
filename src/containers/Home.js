@@ -9,37 +9,31 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   const [totalOffers, setTotalOffers] = useState(0);
-  const limit = 10;
+  const limit = 5;
   const [nbPages, setNbPages] = useState([]);
-
-  useEffect(() => {
-    const getTotalPages = () => {
-      const totalPages = Math.ceil(totalOffers / limit);
-      const newTab = [...nbPages];
-      for (let i = 1; i < totalPages; i++) {
-        newTab.push(i);
-        setNbPages(newTab);
-      }
-    };
-    getTotalPages(totalOffers, limit, nbPages);
-  }, [totalOffers]);
 
   const fetchData = async () => {
     try {
       const response = await Axios.get(
-        "https://lereacteur-vinted-api.herokuapp.com/offers"
+        "https://lereacteur-vinted-api.herokuapp.com/offers?page=1&limit=5"
       );
       setArticles(response.data.offers);
       setTotalOffers(response.data.count);
+      const totalPages = Math.ceil(totalOffers / limit); //nb d'articles / limite arrondi au chiffre au dessus en cas de décimaux
+      const newTab = [...nbPages];
+      for (let i = 1; i < totalPages; i++) {
+        newTab.push(i);
+      }
+      setNbPages(newTab);
       setIsLoading(false);
     } catch (error) {
       console.log(error.message);
     }
   };
-
+  console.log(nbPages);
   useEffect(() => {
-    fetchData();
-  }, []);
+    fetchData(totalOffers, nbPages);
+  }, [totalOffers]);
   //console.log(nbPages);
   return (
     <>
@@ -49,10 +43,27 @@ const Home = () => {
       ) : (
         <section className=" container">
           <TotalOffers articles={articles} />
-          <div>
+          <div className="pagination">
             {totalOffers &&
-              nbPages.map((button, index) => {
-                return <button key={index}>{button}</button>;
+              nbPages.map((page, index) => {
+                return (
+                  <button
+                    key={index}
+                    onClick={async () => {
+                      try {
+                        const response = await Axios.get(
+                          `https://lereacteur-vinted-api.herokuapp.com/offers?page=${page}$limit=5`
+                        );
+                        setArticles(response.data.offers);
+                        setIsLoading(false);
+                      } catch (error) {
+                        console.log(error.message);
+                      }
+                    }}
+                  >
+                    {page}
+                  </button>
+                );
               })}
           </div>
         </section>
