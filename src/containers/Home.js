@@ -35,7 +35,7 @@ const Home = () => {
     fetchData(totalOffers);
   }, [totalOffers, indexPage]);
 
-  console.log("nb pages", newTab);
+  console.log(indexPage);
 
   return (
     <>
@@ -45,10 +45,13 @@ const Home = () => {
       ) : (
         <section className=" container">
           <TotalOffers articles={articles} />
-          <div className="pagination">
+          <div className="buttonPagination">
             {newTab.map((page, index) => {
               return (
                 <button
+                  className={
+                    indexPage === page + 1 ? "paginationFocus" : "pagination"
+                  }
                   key={index}
                   onClick={() => {
                     setIndexPage(page + 1);
