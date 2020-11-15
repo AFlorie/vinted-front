@@ -14,6 +14,8 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 library.add(faSearch);
 
 function App() {
+  const [search, setSearch] = useState("");
+
   let cookie = Cookie.get("userToken");
   const [token, setToken] = useState(cookie || null);
   // console.log(token);
@@ -32,7 +34,12 @@ function App() {
   return (
     <>
       <Router>
-        <Header token={token} setToken={setToken} setUser={setUser} />
+        <Header
+          token={token}
+          setToken={setToken}
+          setUser={setUser}
+          setSearch={setSearch}
+        />
         <Switch>
           <Route path="/offer/:id">
             <Offer />
@@ -47,7 +54,7 @@ function App() {
           </Route>
 
           <Route path="/">
-            <Home />
+            <Home setSearch={setSearch} search={search} />
           </Route>
         </Switch>
       </Router>

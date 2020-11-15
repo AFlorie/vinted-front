@@ -3,19 +3,21 @@ import Axios from "axios";
 
 import Heading from "../components/Heading";
 import TotalOffers from "../containers/TotalOffers";
+import OffersNavBar from "../components/OffersNavBar";
 
-const Home = () => {
+const Home = ({ search }) => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const [totalOffers, setTotalOffers] = useState(0);
-  const limit = 5;
+  const [limit, setLimit] = useState(5);
   const [indexPage, setIndexPage] = useState(1);
+  const [sort, setSort] = useState("price-asc");
 
   const fetchData = async () => {
     try {
       const response = await Axios.get(
-        `https://lereacteur-vinted-api.herokuapp.com/offers?page=${indexPage}&limit=${limit}`
+        `https://lereacteur-vinted-api.herokuapp.com/offers?page=${indexPage}&limit=${limit}&sort=${sort}&title=${search}`
       );
       setArticles(response.data.offers);
       setTotalOffers(response.data.count);
@@ -33,9 +35,8 @@ const Home = () => {
 
   useEffect(() => {
     fetchData(totalOffers);
-  }, [totalOffers, indexPage]);
-
-  console.log(indexPage);
+    // eslint-disable-next-line
+  }, [totalOffers, indexPage, limit, sort, search]);
 
   return (
     <>
@@ -44,6 +45,11 @@ const Home = () => {
         <p>Chargement en cours...</p>
       ) : (
         <section className=" container">
+          <OffersNavBar
+            setSort={setSort}
+            setLimit={setLimit}
+            totalOffers={totalOffers}
+          />
           <TotalOffers articles={articles} />
           <div className="buttonPagination">
             {newTab.map((page, index) => {

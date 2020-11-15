@@ -41,7 +41,6 @@ header input {
   height: 36px;
   padding-left: 50px;
   font-size: 16px;
-  color: #dee0e0;
   border-radius: 5px;
   background-color: #f5f6f7;
   cursor: pointer;
@@ -159,6 +158,23 @@ header button.sellProduct:hover {
   position: absolute;
   right: 0;
   bottom: 0;
+}
+
+/*  OFFER OPTIONS NAVIGATION BAR  */
+
+.OfferNavOptions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.OfferNavOptions span {
+  margin-left: 20px;
+  color: #0ab0ba;
+}
+
+.OfferNavOptions span:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 /* ARTICLES  */

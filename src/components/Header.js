@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Logo from "../assets/Vinted_logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Header = ({ token, setToken, setUser }) => {
+const Header = ({ token, setToken, setUser, setSearch }) => {
   return (
     <header>
       <div className="container">
@@ -19,6 +19,9 @@ const Header = ({ token, setToken, setUser }) => {
             id="search"
             name="search"
             placeholder="recherche des articles"
+            onChange={(event) => {
+              setSearch(event.target.value);
+            }}
           ></input>
         </div>
         <section>
