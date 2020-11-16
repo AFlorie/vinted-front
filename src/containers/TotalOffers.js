@@ -10,8 +10,11 @@ const TotalOffers = ({ articles }) => {
             <article className="article">
               <div className="userInfo">
                 <img
-                  src={article.owner.account.avatar.secure_url}
-                  alt="profilPicture"
+                  src={
+                    article.owner.account.avatar &&
+                    article.owner.account.avatar.secure_url
+                  }
+                  alt=""
                 />
                 <span>{article.owner.account.username}</span>
               </div>
