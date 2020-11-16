@@ -483,22 +483,40 @@ div.buttonPagination {
 }
 
 .publish section:nth-child(1) input {
-  margin: 100px auto;
+  margin: 100px 40%;
 }
 
 .publish section {
-  display: flex;
-  justify-content: space-between;
-  align-content: center;
-  border: 1px solid #c1c2c3;
   margin-top: 16px;
+  border: 1px solid #c1c2c3;
   background-color: #fff;
   width: 100%;
 }
 
-.publish section div {
+.publish section article {
+  padding: 26px;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   align-content: center;
+}
+
+.publish section article div.col-1 {
+  flex: 2;
+}
+
+.publish section article div.col-2 {
+  flex: 2;
+}
+
+.publish button {
+  outline: none;
+  border-style: none;
+  font-family: inherit;
+  font-size: inherit;
+  background-color: #0ab1ba;
+  color: white;
+  padding: 12px;
+  border-radius: 5px;
+  margin: 68px 50%;
+  cursor: pointer;
 }
