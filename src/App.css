@@ -221,7 +221,8 @@ header button.sellProduct:hover {
 
 /*  OFFER */
 
-.offerContainer {
+.offerContainer,
+.publish {
   background-color: #ebedee;
 }
 
@@ -472,4 +473,32 @@ div.buttonPagination {
   padding: 2px 10px 4px 10px;
   border-radius: 5px;
   cursor: pointer;
+}
+
+/*  PUBLISH  */
+
+.publish h2 {
+  padding: 50px 0 8px 0;
+  font-size: 24px;
+}
+
+.publish section:nth-child(1) input {
+  margin: 100px auto;
+}
+
+.publish section {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  border: 1px solid #c1c2c3;
+  margin-top: 16px;
+  background-color: #fff;
+  width: 100%;
+}
+
+.publish section div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: center;
 }

@@ -8,6 +8,7 @@ import Home from "./containers/Home";
 import Offer from "./containers/Offer";
 import Signup from "./containers/Signup";
 import Login from "./containers/Login";
+import Publish from "./containers/Publish";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
@@ -43,6 +44,10 @@ function App() {
         <Switch>
           <Route path="/offer/:id">
             <Offer />
+          </Route>
+
+          <Route path="/publish">
+            <Publish setUser={setUser} />
           </Route>
 
           <Route path="/signup">
