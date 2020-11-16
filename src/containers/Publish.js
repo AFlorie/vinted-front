@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useHistory, Redirect } from "react-router-dom";
 
 const Publish = ({ token }) => {
+  const history = useHistory();
+
   const [file, setFile] = useState({});
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -33,11 +36,13 @@ const Publish = ({ token }) => {
         formData,
         {
           headers: {
-            Authorization: "Bearer" + token,
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
           },
         }
       );
-      console.log(response.data);
+      // console.log(response.data);
+      history.push(`/offer/${response.data._id}`);
     } catch (error) {
       console.log(error.message);
     }
@@ -194,7 +199,7 @@ const Publish = ({ token }) => {
               </div>
               <div className="col-2">
                 <input
-                  type="text"
+                  type="number"
                   id="offerPrice"
                   name="offerPrice"
                   value={price}
@@ -204,7 +209,7 @@ const Publish = ({ token }) => {
                 />
               </div>
             </article>
-            <article>
+            <article className="exchanges">
               <div className="col-1"></div>
               <div className="col-2">
                 <input
@@ -215,6 +220,7 @@ const Publish = ({ token }) => {
                     setExchange(!exchange);
                   }}
                 />
+
                 <label htmlFor="exchanges">
                   Je suis intéressé(e) par les échanges
                 </label>
@@ -227,7 +233,7 @@ const Publish = ({ token }) => {
       </div>
     </div>
   ) : (
-    <div>pas authorisé</div>
+    <Redirect push to="/login " />
   );
 };
 

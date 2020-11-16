@@ -508,6 +508,25 @@ div.buttonPagination {
   flex: 2;
 }
 
+.publish section article div.col-2 input {
+  width: 100%;
+  border-style: none;
+  border-bottom: 1px solid #dfe1e2;
+  color: #cdcdcd;
+  padding-bottom: 5px;
+}
+
+.publish article.exchanges div.col-1 {
+  border: 1px solid red;
+  flex: 1;
+}
+.publish article.exchanges div.col-2 {
+  border: 1px solid orange;
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
 .publish button {
   outline: none;
   border-style: none;

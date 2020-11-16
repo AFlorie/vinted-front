@@ -20,7 +20,7 @@ const Login = ({ setUser }) => {
       );
       //transmission du token à la fonction setUser dans App.js
       setUser(response.data.token);
-      history.push("/");
+      history.push("/publish");
     } catch (error) {
       console.log(error.response);
     }
