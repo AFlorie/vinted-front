@@ -489,8 +489,30 @@ div.buttonPagination {
   font-size: 24px;
 }
 
+.publish .pictureFile {
+  color: #09b1ba;
+  font-size: 16px;
+  font-weight: bold;
+  border: 1px solid #09b1ba;
+  margin: 100px 42%;
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+}
+
+.publish .pictureFile label:nth-child(1) {
+  font-weight: normal;
+  font-size: 40px;
+}
+
+.publish .pictureFile label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
 .publish section:nth-child(1) input {
-  margin: 100px 40%;
+  display: none;
 }
 
 .publish section {
@@ -523,14 +545,52 @@ div.buttonPagination {
   padding-bottom: 5px;
 }
 
+.publish section article div.col-2 input:focus {
+  width: 100%;
+  border-style: none;
+  outline: none;
+  border-bottom: 1px solid #0ab1ba;
+  color: #cdcdcd;
+  padding-bottom: 5px;
+}
+
+.publish section article div.col-2 textarea {
+  font-family: inherit;
+  font-size: 14px;
+  color: #cdcdcd;
+  border-style: none;
+  width: 100%;
+  border-bottom: 1px solid #dfe1e2;
+}
+
+.publish section article div.col-2 textarea:focus {
+  outline: none;
+  border-style: none;
+  border-bottom: 1px solid #0ab1ba;
+}
+
 .publish article.exchanges div.col-1 {
   flex: 1;
 }
 
-.publish article.exchanges div.col-2 input {
+.publish div.newCheckbox {
   width: 20px;
   height: 20px;
-  margin-right: 15px;
+  border: 1px solid black;
+  border-radius: 3px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+
+.publish div.newCheckboxChecked {
+  font-size: 26px;
+  color: #0ab1ba;
+  border-radius: 3px;
+  margin-right: 9px;
+}
+
+.publish article.exchanges div.col-2 input {
+  display: none;
 }
 
 .publish article.exchanges div.col-2 {
@@ -551,6 +611,7 @@ div.buttonPagination {
   border-style: none;
   font-family: inherit;
   font-size: inherit;
+  border: 1px solid #0ab1ba;
   background-color: #0ab1ba;
   color: white;
   padding: 12px;
@@ -559,22 +620,33 @@ div.buttonPagination {
   cursor: pointer;
 }
 
+.publish button:hover {
+  border: 1px solid #0ab1ba;
+  background-color: white;
+  color: #0ab1ba;
+}
+
 /*  PAYMENT  */
 
 .payment {
   width: 20%;
   margin: 20px auto;
+  border-right: 1px solid lightgrey;
+  border-left: 1px solid lightgrey;
 }
 
 .payment h2 {
   text-align: center;
   margin: 50px 0;
+  padding: 10px 5px;
+  background-color: #6a6a6a;
+  color: white;
   font-size: 20px;
   font-weight: bold;
 }
 
 .payment button {
-  margin-top: 20px;
+  margin-top: 40px;
   padding: 10px 0;
   width: 100%;
   outline: none;
@@ -584,4 +656,42 @@ div.buttonPagination {
   font-family: inherit;
   font-size: inherit;
   cursor: pointer;
+}
+
+.payment button:hover {
+  opacity: 0.8;
+}
+
+/* SUMMARY */
+
+.summary {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px auto;
+  width: 20%;
+}
+
+.summary h2 {
+  font-size: 20px;
+}
+
+.summary button {
+  outline: none;
+  border: 1px solid #09b1ba;
+  background-color: #09b1ba;
+  color: white;
+  margin-top: 50px;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.summary button:hover {
+  border: 1px solid #09b1ba;
+  background-color: white;
+  color: #09b1ba;
 }

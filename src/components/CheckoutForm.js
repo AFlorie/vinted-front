@@ -2,6 +2,8 @@ import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import axios from "axios";
 import React, { useState } from "react";
 
+import Summary from "./Summary";
+
 const CheckoutForm = ({ name, price }) => {
   const elements = useElements();
   const stripe = useStripe();
@@ -44,7 +46,7 @@ const CheckoutForm = ({ name, price }) => {
           </form>
         </div>
       ) : (
-        <span>Paiement effectué</span>
+        <Summary />
       )}
     </>
   );

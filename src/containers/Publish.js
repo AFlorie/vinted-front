@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useHistory, Redirect } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Publish = ({ token }) => {
   const history = useHistory();
@@ -54,14 +55,18 @@ const Publish = ({ token }) => {
         <h2>Vends ton article</h2>
         <form onSubmit={handleSubmit}>
           <section>
-            <input
-              type="file"
-              id="offerPicture"
-              name="offerPicture"
-              onChange={(event) => {
-                setFile(event.target.files[0]);
-              }}
-            />
+            <div className="pictureFile">
+              <label htmlFor="offerPicture">+</label>
+              <label htmlFor="offerPicture">Ajoute une photo</label>
+              <input
+                type="file"
+                id="offerPicture"
+                name="offerPicture"
+                onChange={(event) => {
+                  setFile(event.target.files[0]);
+                }}
+              />
+            </div>
           </section>
           <section>
             <article>
@@ -84,7 +89,7 @@ const Publish = ({ token }) => {
             <hr />
             <article>
               <div className="col-1">
-                <span>Ex: porté quelques fois, taille correctement</span>
+                <span>Décris ton article</span>
               </div>
               <div className="col-2">
                 <textarea
@@ -93,7 +98,7 @@ const Publish = ({ token }) => {
                   cols="30"
                   rows="10"
                   value={description}
-                  placeholder="ex: proté quelques fois, taille correctement"
+                  placeholder="ex: porté quelques fois, taille correctement"
                   onChange={(event) => {
                     setDescription(event.target.value);
                   }}
@@ -220,6 +225,15 @@ const Publish = ({ token }) => {
                     setExchange(!exchange);
                   }}
                 />
+                <label htmlFor="exchanges">
+                  {exchange ? (
+                    <div className="newCheckboxChecked">
+                      <FontAwesomeIcon icon="check-square" />
+                    </div>
+                  ) : (
+                    <div className="newCheckbox">{""}</div>
+                  )}
+                </label>
 
                 <label htmlFor="exchanges">
                   Je suis intéressé(e) par les échanges

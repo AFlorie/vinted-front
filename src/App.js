@@ -12,8 +12,8 @@ import Publish from "./containers/Publish";
 import Payment from "./containers/Payment";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-library.add(faSearch);
+import { faSearch, faCheckSquare } from "@fortawesome/free-solid-svg-icons";
+library.add(faSearch, faCheckSquare);
 
 function App() {
   const [search, setSearch] = useState("");
