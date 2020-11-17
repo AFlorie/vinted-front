@@ -45,7 +45,7 @@ const Header = ({ token, setToken, setUser, setSearch }) => {
             </>
           )}
 
-          <Link to={token ? "publish" : "/login"}>
+          <Link to="/publish">
             <button className="sellProduct">Vends tes articles</button>
           </Link>
         </section>

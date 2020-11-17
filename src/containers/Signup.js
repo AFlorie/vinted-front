@@ -26,7 +26,10 @@ const Signup = ({ setUser }) => {
       setUser(response.data.token);
       history.push("/");
     } catch (error) {
-      setMessage(error.response.data.message);
+      if (error.response && error.response.data.message) {
+        setMessage(error.response.data.message);
+      }
+
       console.log(error.response);
     }
   };

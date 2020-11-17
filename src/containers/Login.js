@@ -9,6 +9,8 @@ const Login = ({ setUser }) => {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
 
+  console.log("test", location);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -24,19 +26,16 @@ const Login = ({ setUser }) => {
       if (response.data.token) {
         setUser(response.data.token);
 
-        // history.push(location.state.fromPublish ? "/publish" : "/");
+        history.push(location.state.fromPublish ? "/publish" : "/");
       } else {
         alert("Une erreur est survenue");
       }
     } catch (error) {
-      if (error.response.data.message) {
-        setMessage(error.response.data.message);
-      } else {
-        setMessage(error.response.data.error);
+      if (error.response && error.response.data) {
+        setMessage("Mauvais email et/ou mauvais mot de passe");
       }
-      setMessage(error.response.data.message);
-      // console.log(error.response.data.error);
-      // console.log("message : ", message);
+
+      console.log(error.message);
     }
   };
 
