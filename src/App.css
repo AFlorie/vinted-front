@@ -517,14 +517,26 @@ div.buttonPagination {
 }
 
 .publish article.exchanges div.col-1 {
-  border: 1px solid red;
   flex: 1;
 }
+
+.publish article.exchanges div.col-2 input {
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+}
+
 .publish article.exchanges div.col-2 {
-  border: 1px solid orange;
+  width: 0;
   flex: 1;
   display: flex;
   justify-content: flex-start;
+  align-items: center;
+}
+
+.publish .buttonAdd {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .publish button {
@@ -536,6 +548,6 @@ div.buttonPagination {
   color: white;
   padding: 12px;
   border-radius: 5px;
-  margin: 68px 50%;
+  margin: 68px 0 49px 0;
   cursor: pointer;
 }

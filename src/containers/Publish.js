@@ -227,13 +227,17 @@ const Publish = ({ token }) => {
               </div>
             </article>
           </section>
-
-          <button type="submit">Ajouter</button>
+          <article className="buttonAdd">
+            <div className="col-1"></div>
+            <div className="col-2">
+              <button type="submit">Ajouter</button>
+            </div>
+          </article>
         </form>
       </div>
     </div>
   ) : (
-    <Redirect push to="/login " />
+    <Redirect to={{ pathname: "/login", state: { fromPublish: true } }} />
   );
 };
 

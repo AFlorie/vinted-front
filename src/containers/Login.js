@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import Axios from "axios";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 
 const Login = ({ setUser }) => {
   const history = useHistory();
+  const location = useLocation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -19,8 +20,13 @@ const Login = ({ setUser }) => {
         }
       );
       //transmission du token à la fonction setUser dans App.js
-      setUser(response.data.token);
-      history.push("/publish");
+      if (response.data.token) {
+        setUser(response.data.token);
+        console.log(fromPublish);
+        history.push(location.state.fromPublish ? "/publish" : "/");
+      } else {
+        alert("Une erreur est survenue");
+      }
     } catch (error) {
       console.log(error.response);
     }
