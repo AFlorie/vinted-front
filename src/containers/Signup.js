@@ -7,6 +7,7 @@ const Signup = ({ setUser }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -25,6 +26,7 @@ const Signup = ({ setUser }) => {
       setUser(response.data.token);
       history.push("/");
     } catch (error) {
+      setMessage(error.response.data.message);
       console.log(error.response);
     }
   };
@@ -32,6 +34,7 @@ const Signup = ({ setUser }) => {
   return (
     <section className="signup">
       <h2>S'inscrire</h2>
+      <div className="message">{message}</div>
       <form onSubmit={handleSubmit}>
         <input
           type="text"

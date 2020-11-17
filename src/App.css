@@ -353,6 +353,12 @@ p.description {
 
 /*  SIGN UP  */
 
+.signup .message,
+.login .message {
+  color: red;
+  text-align: center;
+}
+
 .signup,
 .login {
   width: 275px;

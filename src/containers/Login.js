@@ -7,6 +7,7 @@ const Login = ({ setUser }) => {
   const location = useLocation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -22,19 +23,27 @@ const Login = ({ setUser }) => {
       //transmission du token à la fonction setUser dans App.js
       if (response.data.token) {
         setUser(response.data.token);
-        console.log(fromPublish);
-        history.push(location.state.fromPublish ? "/publish" : "/");
+
+        // history.push(location.state.fromPublish ? "/publish" : "/");
       } else {
         alert("Une erreur est survenue");
       }
     } catch (error) {
-      console.log(error.response);
+      if (error.response.data.message) {
+        setMessage(error.response.data.message);
+      } else {
+        setMessage(error.response.data.error);
+      }
+      setMessage(error.response.data.message);
+      // console.log(error.response.data.error);
+      // console.log("message : ", message);
     }
   };
 
   return (
     <section className="login">
       <h2>Se connecter</h2>
+      <div className="message">{message}</div>
       <form onSubmit={handleSubmit}>
         <input
           type="email"
