@@ -9,7 +9,14 @@ const Login = ({ setUser }) => {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
 
-  console.log("test", location);
+  let fromPublish;
+  if (location.state) {
+    fromPublish = true;
+  } else {
+    fromPublish = false;
+  }
+
+  //  console.log("test", location);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -26,7 +33,7 @@ const Login = ({ setUser }) => {
       if (response.data.token) {
         setUser(response.data.token);
 
-        history.push(location.state.fromPublish ? "/publish" : "/");
+        history.push(fromPublish ? "/publish" : "/");
       } else {
         alert("Une erreur est survenue");
       }

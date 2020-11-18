@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 const Offer = () => {
-  const history = useHistory();
-
   const { id } = useParams();
   const [product, setProduct] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -69,16 +67,17 @@ const Offer = () => {
                     <span>{product.owner.account.username}</span>
                   </p>
                 </section>
-                <button
-                  onClick={() => {
-                    history.push("/Payment", {
-                      price: product.product_price,
+                <Link
+                  to={{
+                    pathname: "/payment",
+                    state: {
                       name: product.product_name,
-                    });
+                      price: product.product_price,
+                    },
                   }}
                 >
-                  acheter
-                </button>
+                  <button>acheter</button>
+                </Link>
               </section>
             </div>
           </div>

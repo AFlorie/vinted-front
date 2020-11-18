@@ -51,8 +51,8 @@ function App() {
             <Publish token={token} />
           </Route>
 
-          <Route path="/Payment">
-            <Payment />
+          <Route path="/payment">
+            <Payment token={token} />
           </Route>
 
           <Route path="/signup">
