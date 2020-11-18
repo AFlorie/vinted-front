@@ -6,16 +6,13 @@ import CheckoutForm from "../components/CheckoutForm";
 
 const stripePromise = loadStripe("pk_test_5z9rSB8XwuAOihoBixCMfL6X");
 
-const Payment = ({ token }) => {
-  // console.log(token);
+const Payment = () => {
   const location = useLocation();
 
-  const { name, price } = location.state;
-
   // console.log("test", name, price);
-  return token ? (
+  return location.state ? (
     <Elements stripe={stripePromise}>
-      <CheckoutForm name={name} price={price} />
+      <CheckoutForm name={location.state.name} price={location.state.price} />
     </Elements>
   ) : (
     <Redirect to="/login" />
